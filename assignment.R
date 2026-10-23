@@ -8,7 +8,12 @@ meta <- oldFrenchMeta
 # допишите ваш код ниже
 # постройте в ggplot столбиковую диаграмму (_bar), 
 # показывающую распределение произведений по темам; цветом-заливкой закодируйте жанр; 
-meta |> 
+g <- meta |> 
+  ggplot(aes(x = Topic, fill = Genre)) +
+  geom_bar() +
+  labs (title = "Old French Data", x = NULL, y = NULL) +
+  coord_flip() +
+  theme_bw()
   # ваш код здесь
   # уберите названия осей; добавьте заголовок "Old French Data"
   # ваш код здесь 
@@ -18,3 +23,4 @@ meta |>
 
 # !!!! сохраните график как объект в окружении под именем g
 # !!!!вызов class(g) должен возвращать "gg"     "ggplot"
+class(g)
